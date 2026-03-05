@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { useCart } from '@/contexts/CartContext';
 
 const artworks = [
   { title: "Make Hay While the Sun Shines", price: 700, image: "IMG-20230326-WA0002.jpg", sold: false, size: "18 inches x 16 inches", slug: "make-hay-while-sun-shines" },
@@ -45,6 +46,7 @@ const artworks = [
 export default function ArtworkDetailPage() {
   const params = useParams();
   const router = useRouter();
+  const { addToCart } = useCart();
   const slug = params.slug as string;
   
   const artwork = artworks.find(a => a.slug === slug);
@@ -85,7 +87,18 @@ export default function ArtworkDetailPage() {
             </div>
             
             {!artwork.sold && artwork.price > 0 && (
-              <button className="mt-8 px-8 py-3 bg-black text-white hover:bg-gray-800 transition">
+              <button 
+                onClick={() => {
+                  addToCart({
+                    slug: artwork.slug,
+                    title: artwork.title,
+                    price: artwork.price,
+                    image: artwork.image
+                  });
+                  alert('Added to cart!');
+                }}
+                className="mt-8 px-8 py-3 bg-black text-white hover:bg-gray-800 transition"
+              >
                 Add To Cart
               </button>
             )}
