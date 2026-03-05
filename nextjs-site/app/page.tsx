@@ -4,24 +4,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <Link href="/" className="font-serif text-2xl font-bold text-black">John Galvin</Link>
-            <div className="hidden md:flex gap-6 text-base font-medium text-black">
-              <Link href="/" className="hover:text-gray-600 transition">Home</Link>
-              <Link href="/original-art" className="hover:text-gray-600 transition">Original Art For Sale</Link>
-              <Link href="/prints" className="hover:text-gray-600 transition">Prints</Link>
-              <Link href="/stockists" className="hover:text-gray-600 transition">Print Stockists</Link>
-              <Link href="/catalogue" className="hover:text-gray-600 transition">Art Catalogue</Link>
-              <Link href="/about" className="hover:text-gray-600 transition">About John</Link>
-              <Link href="/contact" className="hover:text-gray-600 transition">Contact</Link>
-            </div>
-          </div>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <img 
@@ -56,20 +38,54 @@ export default function Home() {
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center mb-8 sm:mb-12 animate-fadeIn">Featured Works</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-12">
           {[
-            { title: "Farmleigh House Conservatory", category: "Original" },
-            { title: "Make Hay When the Sun Shines", category: "Original" },
-            { title: "Blue Elegance", category: "Original" },
-            { title: "Sunrise Skerries", category: "Original" },
-            { title: "Better Together", category: "Original" },
-            { title: "Nature's Way", category: "Print" },
+            { 
+              title: "Farmleigh House Conservatory", 
+              category: "Original",
+              image: "https://images.squarespace-cdn.com/content/v1/5aae685be2ccd1747b5a523b/71ee85e4-43b2-43b2-a0bd-af4d7160e666/912f9ee2-d338-477b-88ac-85920821a6e5.jpg?format=500w",
+              link: "/original-art-for-sale/farmleigh-house"
+            },
+            { 
+              title: "Make Hay When the Sun Shines", 
+              category: "Original",
+              image: "https://images.squarespace-cdn.com/content/v1/5aae685be2ccd1747b5a523b/1704753711352-T0K1EUANKSLMWP5VK361/4e7c488c-928e-4322-81de-252f90c94d21.jpg?format=500w",
+              link: "/original-art-for-sale/make-hay-while-sun-shines"
+            },
+            { 
+              title: "Blue Elegance", 
+              category: "Original",
+              image: "https://images.squarespace-cdn.com/content/v1/5aae685be2ccd1747b5a523b/ac68cf3f-e2fe-4dad-99bf-2f4cbfc482e1/4e7c488c-928e-4322-81de-252f90c94d21.jpg?format=500w",
+              link: "/original-art-for-sale/blue-elegance"
+            },
+            { 
+              title: "Sunrise Skerries", 
+              category: "Original",
+              image: "https://images.squarespace-cdn.com/content/v1/5aae685be2ccd1747b5a523b/71ee85e4-43b2-43b2-a0bd-af4d7160e666/912f9ee2-d338-477b-88ac-85920821a6e5.jpg?format=500w",
+              link: "/original-art"
+            },
+            { 
+              title: "Better Together", 
+              category: "Original",
+              image: "https://images.squarespace-cdn.com/content/v1/5aae685be2ccd1747b5a523b/1704753711352-T0K1EUANKSLMWP5VK361/4e7c488c-928e-4322-81de-252f90c94d21.jpg?format=500w",
+              link: "/original-art"
+            },
+            { 
+              title: "Nature's Way", 
+              category: "Print",
+              image: "https://images.squarespace-cdn.com/content/v1/5aae685be2ccd1747b5a523b/ac68cf3f-e2fe-4dad-99bf-2f4cbfc482e1/4e7c488c-928e-4322-81de-252f90c94d21.jpg?format=500w",
+              link: "/prints"
+            },
           ].map((work, i) => (
-            <div key={i} className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-4 hover:scale-105">
+            <Link key={i} href={work.link} className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-4 hover:scale-105">
               <div className="aspect-square bg-gray-200 mb-4 overflow-hidden rounded-lg shadow-lg group-hover:shadow-2xl transition-all duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400 group-hover:scale-110 transition-transform duration-500" />
+                <img 
+                  src={work.image} 
+                  alt={work.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                />
               </div>
               <h3 className="font-serif text-base sm:text-lg group-hover:text-gray-600 transition-colors duration-300">{work.title}</h3>
               <p className="text-gray-600 text-sm">{work.category}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </section>
@@ -116,20 +132,6 @@ export default function Home() {
           </Link>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-black text-white py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 sm:gap-6">
-            <p className="text-sm sm:text-base">© John Galvin 2024 All Rights Reserved</p>
-            <div className="flex gap-4 sm:gap-6 text-sm sm:text-base">
-              <a href="mailto:johnggalvin@gmail.com" className="hover:text-gray-300 hover:scale-110 transition-all duration-300">Email</a>
-              <a href="http://instagram.com/johngalvinfineart" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 hover:scale-110 transition-all duration-300">Instagram</a>
-              <a href="https://www.facebook.com/johngalvinfineart/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 hover:scale-110 transition-all duration-300">Facebook</a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
