@@ -93,7 +93,7 @@ export default function Home() {
       {/* About Section */}
       <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center mb-8 sm:mb-12 animate-slideInLeft">About John Galvin</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-center mb-8 sm:mb-12 animate-slideInLeft text-black">About John Galvin</h2>
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
             <div className="w-full md:w-1/2">
               <img 
@@ -114,22 +114,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Location */}
-      <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif mb-6 sm:mb-8 animate-fadeIn">Visit the Gallery</h2>
-          <div className="space-y-2 text-base sm:text-lg animate-fadeInUp [animation-delay:200ms] opacity-0" style={{animationDelay: '200ms', animationFillMode: 'forwards'}}>
-            <p>Main Street</p>
-            <p>Moate, Co Westmeath</p>
-            <p>Ireland N37C5F6</p>
-            <p className="pt-4">Phone: 0906481286</p>
-          </div>
-          <Link href="/stockists" className="inline-block mt-6 sm:mt-8 px-6 sm:px-8 py-2 sm:py-3 text-sm sm:text-base border-2 border-black hover:bg-black hover:text-white hover:scale-105 transition-all duration-300 hover:shadow-lg animate-fadeInUp [animation-delay:400ms] opacity-0" style={{animationDelay: '400ms', animationFillMode: 'forwards'}}>
-            Print Stockists in Ireland
-          </Link>
         </div>
       </section>
     </main>

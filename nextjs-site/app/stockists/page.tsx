@@ -60,7 +60,7 @@ export default function StockistsPage() {
   return (
     <div className="pt-16">
       <main className="max-w-6xl mx-auto p-8 pb-20 sm:p-20">
-        <h1 className="text-4xl font-bold mb-6">Our Print Stockists</h1>
+        <h1 className="text-4xl sm:text-5xl font-serif text-center mb-4">Our Print Stockists</h1>
         
         <p className="mb-4 text-lg">
           In addition to buying prints online from the website shop, the businesses in the list and map below also stock prints of John Galvin&apos;s art, through our partners Blue Shoe Gallery.

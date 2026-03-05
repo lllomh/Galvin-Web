@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -20,6 +21,16 @@ interface Stockist {
 }
 
 export default function StockistsMap({ stockists }: { stockists: Stockist[] }) {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return <div className="w-full h-[500px] rounded-lg mb-8 border bg-gray-100 flex items-center justify-center">Loading map...</div>;
+  }
+
   return (
     <MapContainer
       center={[53.4129, -8.2439]}
