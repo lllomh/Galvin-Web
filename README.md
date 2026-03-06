@@ -91,7 +91,7 @@ See [ECOMMERCE_SETUP.md](nextjs-site/ECOMMERCE_SETUP.md) for detailed setup inst
 ## Development
 
 ```bash
-npm run dev      # Start development server
+npm run dev      # Start development server for dev
 npm run build    # Build for production
 npm run start    # Start production server
 npm run lint     # Run ESLint
