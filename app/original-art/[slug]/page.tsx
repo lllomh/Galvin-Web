@@ -1,8 +1,5 @@
-'use client';
-
-import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { useCart } from '@/contexts/CartContext';
+import AddToCartButton from './AddToCartButton';
 
 const artworks = [
   { title: "Make Hay While the Sun Shines", price: 700, image: "IMG-20230326-WA0002.jpg", sold: false, size: "18 inches x 16 inches", slug: "make-hay-while-sun-shines" },
@@ -43,13 +40,12 @@ const artworks = [
   { title: "Original Art by John Galvin", price: 500, image: "IMG-20211109-WA0010.jpg", sold: true, size: "18 inches x 16 inches", slug: "original-art-2" }
 ];
 
-export default function ArtworkDetailPage() {
-  const params = useParams();
-  const router = useRouter();
-  const { addToCart } = useCart();
-  const slug = params.slug as string;
-  
-  const artwork = artworks.find(a => a.slug === slug);
+export function generateStaticParams() {
+  return artworks.map(artwork => ({ slug: artwork.slug }));
+}
+
+export default function ArtworkDetailPage({ params }: { params: { slug: string } }) {
+  const artwork = artworks.find(a => a.slug === params.slug);
   
   if (!artwork) {
     return <div className="pt-16 min-h-screen flex items-center justify-center">Artwork not found</div>;
@@ -87,20 +83,12 @@ export default function ArtworkDetailPage() {
             </div>
             
             {!artwork.sold && artwork.price > 0 && (
-              <button 
-                onClick={() => {
-                  addToCart({
-                    slug: artwork.slug,
-                    title: artwork.title,
-                    price: artwork.price,
-                    image: artwork.image
-                  });
-                  alert('Added to cart!');
-                }}
-                className="mt-8 px-8 py-3 bg-black text-white hover:bg-gray-800 transition"
-              >
-                Add To Cart
-              </button>
+              <AddToCartButton artwork={{
+                slug: artwork.slug,
+                title: artwork.title,
+                price: artwork.price,
+                image: artwork.image
+              }} />
             )}
           </div>
         </div>
