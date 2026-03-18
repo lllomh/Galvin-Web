@@ -4,6 +4,7 @@ import { useCart } from '@/contexts/CartContext';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { loadStripe } from '@stripe/stripe-js';
+import { imagePath } from '@/lib/imagePath';
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
@@ -138,7 +139,7 @@ export default function CheckoutPage() {
               {items.map((item) => (
                 <div key={item.slug} className="flex gap-4 pb-4 border-b">
                   <img 
-                    src={`/original/${item.image}`}
+                    src={imagePath(`/original/${item.image}`)}
                     alt={item.title}
                     className="w-20 h-20 object-cover rounded"
                   />

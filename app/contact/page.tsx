@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { imagePath } from "@/lib/imagePath";
 
 export default function ContactPage() {
   return (
@@ -29,22 +29,22 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="grid grid-cols-2 gap-4">
             <img 
-              src="/contact/gallery1.jpg"
+              src={imagePath("/contact/gallery1.jpg")}
               alt="Gallery Interior"
               className="w-full h-64 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
             />
             <img 
-              src="/contact/gallery2.jpg"
+              src={imagePath("/contact/gallery2.jpg")}
               alt="Gallery Interior"
               className="w-full h-64 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
             />
             <img 
-              src="/contact/gallery3.jpg"
+              src={imagePath("/contact/gallery3.jpg")}
               alt="Gallery Interior"
               className="w-full h-64 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
             />
             <img 
-              src="/contact/gallery4.jpg"
+              src={imagePath("/contact/gallery4.jpg")}
               alt="Gallery Interior"
               className="w-full h-64 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
             />

@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useCart } from '@/contexts/CartContext';
+import { imagePath } from '@/lib/imagePath';
 
 export default function CartPage() {
   const { items, removeFromCart, updateQuantity, totalPrice, clearCart } = useCart();
@@ -32,7 +33,7 @@ export default function CartPage() {
             {items.map((item) => (
               <div key={item.slug} className="flex gap-6 border-b pb-6">
                 <img 
-                  src={`/original/${item.image}`}
+                  src={imagePath(`/original/${item.image}`)}
                   alt={item.title}
                   className="w-32 h-32 object-cover rounded-lg"
                 />

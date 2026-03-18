@@ -1,5 +1,5 @@
-import Image from "next/image";
 import Link from "next/link";
+import { imagePath } from "@/lib/imagePath";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <img 
-          src="/hero/hero-main.jpg"
+          src={imagePath("/hero/hero-main.jpg")}
           alt="John Galvin Fine Art Gallery"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -41,37 +41,37 @@ export default function Home() {
             { 
               title: "Farmleigh House Conservatory", 
               category: "Original",
-              image: "/gallery/farmleigh.jpg",
+              image: imagePath("/gallery/farmleigh.jpg"),
               link: "/original-art-for-sale/farmleigh-house"
             },
-            { 
-              title: "Make Hay When the Sun Shines", 
+            {
+              title: "Make Hay When the Sun Shines",
               category: "Original",
-              image: "/gallery/make-hay.jpg",
+              image: imagePath("/gallery/make-hay.jpg"),
               link: "/original-art-for-sale/make-hay-while-sun-shines"
             },
-            { 
-              title: "Blue Elegance", 
+            {
+              title: "Blue Elegance",
               category: "Original",
-              image: "/gallery/blue-elegance.jpg",
+              image: imagePath("/gallery/blue-elegance.jpg"),
               link: "/original-art-for-sale/blue-elegance"
             },
-            { 
-              title: "Sunrise Skerries", 
+            {
+              title: "Sunrise Skerries",
               category: "Original",
-              image: "/gallery/farmleigh.jpg",
+              image: imagePath("/gallery/farmleigh.jpg"),
               link: "/original-art"
             },
-            { 
-              title: "Better Together", 
+            {
+              title: "Better Together",
               category: "Original",
-              image: "/gallery/make-hay.jpg",
+              image: imagePath("/gallery/make-hay.jpg"),
               link: "/original-art"
             },
-            { 
-              title: "Nature's Way", 
+            {
+              title: "Nature's Way",
               category: "Print",
-              image: "/gallery/blue-elegance.jpg",
+              image: imagePath("/gallery/blue-elegance.jpg"),
               link: "/prints"
             },
           ].map((work, i) => (
@@ -97,7 +97,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center">
             <div className="w-full md:w-1/2">
               <img 
-                src="/about/john-portrait.jpg" 
+                src={imagePath("/about/john-portrait.jpg")}
                 alt="John Galvin"
                 className="w-full rounded-lg shadow-lg"
               />

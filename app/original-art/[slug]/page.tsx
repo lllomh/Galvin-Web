@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import AddToCartButton from './AddToCartButton';
+import { imagePath } from '@/lib/imagePath';
 
 const artworks = [
   { title: "Make Hay While the Sun Shines", price: 700, image: "IMG-20230326-WA0002.jpg", sold: false, size: "18 inches x 16 inches", slug: "make-hay-while-sun-shines" },
@@ -61,7 +62,7 @@ export default function ArtworkDetailPage({ params }: { params: { slug: string }
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div>
             <img 
-              src={`/original/${artwork.image}`} 
+              src={imagePath(`/original/${artwork.image}`)}
               alt={artwork.title}
               className="w-full rounded-lg shadow-lg"
             />

@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './styles.module.css';
+import { imagePath } from '@/lib/imagePath';
 
 const artworks = [
   { title: "Make Hay While the Sun Shines", price: 700, image: "IMG-20230326-WA0002.jpg", sold: false, slug: "make-hay-while-sun-shines" },
@@ -119,7 +120,7 @@ export default function OriginalArtPage() {
                 >
                   <div className="relative aspect-square rounded-lg overflow-hidden shadow-md">
                     <Link href={`/original-art/${artwork.slug}`}>
-                      <img src={`/original/${artwork.image}`} alt={artwork.title} className="w-full h-full object-cover cursor-pointer" />
+                      <img src={imagePath(`/original/${artwork.image}`)} alt={artwork.title} className="w-full h-full object-cover cursor-pointer" />
                     </Link>
 
                     {artwork.sold && (
@@ -150,7 +151,7 @@ export default function OriginalArtPage() {
                   <Link href={`/original-art/${tripleArtworks[centerIndex].slug}`}>
                     <img 
                       key={centerIndex}
-                      src={`/original/${tripleArtworks[centerIndex].image}`} 
+                      src={imagePath(`/original/${tripleArtworks[centerIndex].image}`)}
                       alt={tripleArtworks[centerIndex].title} 
                       className={`w-full h-full object-cover cursor-pointer ${styles.zoomImage}`}
                     />

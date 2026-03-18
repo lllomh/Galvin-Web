@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { imagePath } from "@/lib/imagePath";
 
 const artworks = [
   { title: "Make Hay While the Sun Shines", price: 700, image: "/original/IMG-20230326-WA0002.jpg", sold: false },
@@ -47,7 +47,7 @@ export default function GalleryPage() {
             <div key={index} className="group cursor-pointer">
               <div className="aspect-square bg-gray-200 mb-4 overflow-hidden rounded-lg shadow-md group-hover:shadow-xl transition-all duration-300">
                 <img
-                  src={artwork.image}
+                  src={imagePath(artwork.image)}
                   alt={artwork.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />

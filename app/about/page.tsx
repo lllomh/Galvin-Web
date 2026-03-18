@@ -1,3 +1,5 @@
+import { imagePath } from "@/lib/imagePath";
+
 export default function AboutPage() {
   return (
     <div className="pt-16">
@@ -7,7 +9,7 @@ export default function AboutPage() {
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center mb-16">
           <div className="w-full md:w-1/2">
             <img 
-              src="/about/john-portrait.jpg" 
+              src={imagePath("/about/john-portrait.jpg")}
               alt="John Galvin"
               className="w-full rounded-lg shadow-lg"
             />
@@ -27,17 +29,17 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <img 
-            src="/about/studio1.jpg"
+            src={imagePath("/about/studio1.jpg")}
             alt="John Galvin Artwork"
             className="w-full h-80 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <img 
-            src="/about/studio2.jpg"
+            src={imagePath("/about/studio2.jpg")}
             alt="John Galvin Artwork"
             className="w-full h-80 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
           <img 
-            src="/about/studio3.jpg"
+            src={imagePath("/about/studio3.jpg")}
             alt="John Galvin Artwork"
             className="w-full h-80 object-cover rounded-lg shadow-lg hover:scale-105 transition-transform duration-300"
           />
